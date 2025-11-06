@@ -1,110 +1,106 @@
-﻿<!DOCTYPE html>
-flex: 1;
-position: relative;
-overflow: hidden;
-min-height: 100vh;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dante Moore | Home</title>
+<style>
+main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
-
 
 h1 {
-font-size: 2em;
-z-index: 10;
-position: relative;
+  font-size: 2em;
+  z-index: 10;
+  position: relative;
 }
-
 
 p {
-position: relative;
-z-index: 10;
+  position: relative;
+  z-index: 10;
 }
-
 
 /* Floating elements */
 .floating {
-position: absolute;
-transition: transform 0.6s ease;
-cursor: pointer;
-animation: float 6s ease-in-out infinite;
+  position: absolute;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+  animation: float 6s ease-in-out infinite;
 }
-
 
 @keyframes float {
-0%, 100% { transform: translateY(0px); }
-50% { transform: translateY(-20px); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
-
 
 .sunflower:hover {
-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-
 
 @keyframes wiggle {
-0%, 100% { transform: rotate(0deg); }
-25% { transform: rotate(2deg); }
-75% { transform: rotate(-2deg); }
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
 }
 
-
 .meme:hover {
-animation: wiggle 0.3s ease-in-out infinite;
+  animation: wiggle 0.3s ease-in-out infinite;
 }
 </style>
 </head>
 <body>
 <nav class="sidebar">
-<h2>Dante Moore</h2>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li class="dropdown">
-<a href="#">Work ▾</a>
-<ul class="dropdown-content">
-<li><a href="work/project1.html">Project 1</a></li>
-<li><a href="work/project2.html">Project 2</a></li>
-<li><a href="work/project3.html">Project 3</a></li>
-</ul>
-</li>
-<li><a href="about.html">About</a></li>
-<li><a href="cv.html">CV</a></li>
-</ul>
+  <h2>Dante Moore</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="#">Work ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="work/project1.html">Project 1</a></li>
+        <li><a href="work/project2.html">Project 2</a></li>
+        <li><a href="work/project3.html">Project 3</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
 </nav>
 
-
 <main>
-<h1>Welcome to my world 🌻</h1>
-<p>Hover over the sunflowers and memes scattered around.</p>
-
+  <h1>Welcome to my world 🌻</h1>
+  <p>Hover over the sunflowers and memes scattered around.</p>
 
 <script>
 const main = document.querySelector('main');
 const sunflowerImages = ['assets/images/sunflower1.png', 'assets/images/sunflower2.png'];
 const memeImages = ['assets/images/meme1.png', 'assets/images/meme2.png'];
 
-
 function randomPos(max) {
-return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max);
 }
 
-
 for (let i = 0; i < 30; i++) {
-const img = document.createElement('img');
-const isSunflower = Math.random() > 0.5;
-img.src = isSunflower ? sunflowerImages[Math.floor(Math.random()*sunflowerImages.length)] : memeImages[Math.floor(Math.random()*memeImages.length)];
-img.classList.add('floating');
-if (isSunflower) img.classList.add('sunflower'); else img.classList.add('meme');
+  const img = document.createElement('img');
+  const isSunflower = Math.random() > 0.5;
+  img.src = isSunflower
+    ? sunflowerImages[Math.floor(Math.random() * sunflowerImages.length)]
+    : memeImages[Math.floor(Math.random() * memeImages.length)];
+  img.classList.add('floating');
+  if (isSunflower) img.classList.add('sunflower'); else img.classList.add('meme');
 
+  img.style.width = isSunflower
+    ? `${80 + Math.random() * 60}px`
+    : `${100 + Math.random() * 80}px`;
+  img.style.top = `${randomPos(window.innerHeight - 100)}px`;
+  img.style.left = `${randomPos(window.innerWidth - 300)}px`;
 
-img.style.width = isSunflower ? `${80 + Math.random()*60}px` : `${100 + Math.random()*80}px`;
-img.style.top = `${randomPos(window.innerHeight - 100)}px`;
-img.style.left = `${randomPos(window.innerWidth - 300)}px`;
+  img.style.animationDuration = `${5 + Math.random() * 5}s`;
+  img.style.animationDelay = `${Math.random() * 3}s`;
 
-
-// Randomize float speed and delay
-img.style.animationDuration = `${5 + Math.random()*5}s`;
-img.style.animationDelay = `${Math.random()*3}s`;
-
-
-main.appendChild(img);
+  main.appendChild(img);
 }
 </script>
 </main>
