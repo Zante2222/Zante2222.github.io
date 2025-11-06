@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dante Moore | Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8ee;
+      color: #222;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 200px;
+      height: 100vh;
+      background: #fff;
+      border-right: 2px solid #eee;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      font-size: 1.4em;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .dropdown-content {
+      display: none;
+      list-style: none;
+      margin: 5px 0 0 10px;
+      padding: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Main content */
+    main {
+      margin-left: 220px;
+      padding: 40px;
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* Sunflowers */
+    .sunflower {
+      width: 120px;
+      transition: transform 0.6s ease;
+      cursor: pointer;
+    }
+    .sunflower:hover {
+      transform: rotate(360deg);
+    }
+
+    /* Memes */
+    .meme {
+      width: 150px;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
+
+    .meme:hover {
+      animation: wiggle 0.3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>Dante Moore</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Work ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="work/project1.html">Project 1</a></li>
+          <li><a href="work/project2.html">Project 2</a></li>
+          <li><a href="work/project3.html">Project 3</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Welcome to my world 🌻</h1>
+    <p>Hover over the sunflowers and memes to see them come alive!</p>
+
+    <div class="gallery">
+      <img src="assets/images/sunflower1.png" class="sunflower" alt="Sunflower">
+      <img src="assets/images/sunflower2.png" class="sunflower" alt="Sunflower">
+      <img src="assets/images/meme1.png" class="meme" alt="Meme 1">
+      <img src="assets/images/meme2.png" class="meme" alt="Meme 2">
+    </div>
+  </main>
+</body>
+</html>
