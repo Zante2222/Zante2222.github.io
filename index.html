@@ -5,8 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dante Moore | Home</title>
 <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: #fffacd;
+  border-right: 2px solid #eee;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.4em;
+  color: #000000;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  color: #8faadc;
+}
+
 main {
-  flex: 1;
+  margin-left: 220px;
+  padding: 40px;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -14,6 +59,7 @@ main {
 
 h1 {
   font-size: 2em;
+  color: #8faadc;
   z-index: 10;
   position: relative;
 }
@@ -72,6 +118,7 @@ p {
 <main>
   <h1>Welcome to my world 🌻</h1>
   <p>Hover over the sunflowers and memes scattered around.</p>
+</main>
 
 <script>
 const main = document.querySelector('main');
@@ -86,23 +133,21 @@ for (let i = 0; i < 30; i++) {
   const img = document.createElement('img');
   const isSunflower = Math.random() > 0.5;
   img.src = isSunflower
-    ? sunflowerImages[Math.floor(Math.random() * sunflowerImages.length)]
-    : memeImages[Math.floor(Math.random() * memeImages.length)];
+    ? sunflowerImages[Math.floor(Math.random()*sunflowerImages.length)]
+    : memeImages[Math.floor(Math.random()*memeImages.length)];
   img.classList.add('floating');
-  if (isSunflower) img.classList.add('sunflower'); else img.classList.add('meme');
+  if (isSunflower) img.classList.add('sunflower');
+  else img.classList.add('meme');
 
-  img.style.width = isSunflower
-    ? `${80 + Math.random() * 60}px`
-    : `${100 + Math.random() * 80}px`;
+  img.style.width = isSunflower ? `${80 + Math.random()*60}px` : `${100 + Math.random()*80}px`;
   img.style.top = `${randomPos(window.innerHeight - 100)}px`;
   img.style.left = `${randomPos(window.innerWidth - 300)}px`;
 
-  img.style.animationDuration = `${5 + Math.random() * 5}s`;
-  img.style.animationDelay = `${Math.random() * 3}s`;
+  img.style.animationDuration = `${5 + Math.random()*5}s`;
+  img.style.animationDelay = `${Math.random()*3}s`;
 
   main.appendChild(img);
 }
 </script>
-</main>
 </body>
 </html>
